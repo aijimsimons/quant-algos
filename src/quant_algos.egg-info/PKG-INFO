@@ -1,0 +1,37 @@
+Metadata-Version: 2.4
+Name: quant-algos
+Version: 0.1.0
+Summary: Quantitative trading strategies
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: polars>=1.0.0
+Requires-Dist: pydantic>=2.0.0
+Provides-Extra: dev
+Requires-Dist: ruff>=0.3.0; extra == "dev"
+Requires-Dist: mypy>=1.10.0; extra == "dev"
+Requires-Dist: pytest>=8.0.0; extra == "dev"
+
+# quant-algos
+
+Collection of trading strategies for quantitative crypto trading.
+
+## Strategy Categories
+
+- **Statistical Arbitrage**: Pair trading, mean reversion, cointegration
+- **Machine Learning**: LSTM, Transformer, GNN on order book
+- **Regime Detection**: HMM, change-point detection
+- **Execution**: TWAP, VWAP, impact models
+- **Fundamental**: On-chain metrics, exchange flows
+- **Sentiment**: News, social media, funding rates
+
+## Usage
+
+```python
+from quant_algos import strategies
+
+# Load strategy
+strategy = strategies.momentum_strategy()
+
+# Backtest
+result = engine.backtest(data, strategy)
+```
