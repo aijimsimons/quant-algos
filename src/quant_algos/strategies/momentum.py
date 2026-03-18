@@ -5,21 +5,36 @@ from typing import Callable
 import polars as pl
 
 
-def momentum_strategy() -> Callable:
+def momentum_strategy(period: int = 20, threshold: float = 0.002) -> Callable:
     """Simple momentum strategy."""
-    def generate_signals(df: pl.DataFrame, positions: list, capital: float) -> list:
+    def generate_signals(
+        data: pl.DataFrame,
+        positions: list,
+        capital: float
+    ) -> list[dict]:
         # Calculate returns
-        df = df.with_columns(
-            (pl.col("close") / pl.col("close").shift(20) - 1).alias("return_20d")
+        df = data.with_columns(
+            (pl.col("close") / pl.col("close").shift(period) - 1).alias(f"return_{period}d")
         )
         
-        # Generate signals based on momentum
+        # Generate signals
         df = df.with_columns(
-            pl.when(pl.col("return_20d") > 0.05).then(1.0)
-             .when(pl.col("return_20d") < -0.05).then(-1.0)
+            pl.when(pl.col(f"return_{period}d") > threshold).then(1.0)
+             .when(pl.col(f"return_{period}d") < -threshold).then(-1.0)
              .otherwise(0.0)
              .alias("signal")
         )
+        
+        # Get latest row as dict
+        latest = df.sort("datetime").tail(1).to_dicts()[0]
+        signal = latest["signal"]
+        
+        if signal != 0:
+            return [{
+                "symbol": latest["symbol"],
+                "size": signal * 1.0,
+                "price": latest["close"],
+            }]
         
         return []
     
