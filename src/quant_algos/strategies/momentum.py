@@ -30,10 +30,15 @@ def momentum_strategy(period: int = 20, threshold: float = 0.002) -> Callable:
         signal = latest["signal"]
         
         if signal != 0:
+            # Scale position size to affordable amount (2% of capital)
+            price = latest["close"]
+            position_value = capital * 0.02  # 2% of capital
+            size = position_value / price
+            
             return [{
                 "symbol": latest["symbol"],
-                "size": signal * 1.0,
-                "price": latest["close"],
+                "size": signal * size,
+                "price": price,
             }]
         
         return []
