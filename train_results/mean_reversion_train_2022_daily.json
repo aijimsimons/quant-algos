@@ -1,0 +1,27 @@
+{
+  "strategy": "mean_reversion",
+  "best_params": {
+    "window": 30,
+    "std_multiplier": 1.8,
+    "position_size_pct": 0.05,
+    "stop_loss_pct": 0.015,
+    "take_profit_pct": 0.025,
+    "max_holding_period": 90
+  },
+  "best_score": 2.229353149957202,
+  "best_metrics": {
+    "total_return": 0.2662224609375,
+    "sharpe_ratio": 2.729353149957202,
+    "max_drawdown": 1.0,
+    "win_rate": 0.5,
+    "profit_factor": 1.0103477484401189,
+    "total_trades": 85.0,
+    "avg_win": 1312.817989464962,
+    "avg_loss": -1299.3724106297348
+  },
+  "total_samples": 50,
+  "data_source": "real_bitcoin_daily",
+  "data_start": "2022-01-01",
+  "data_end": "2026-03-18",
+  "data_years": "post-2021 halving cycle"
+}

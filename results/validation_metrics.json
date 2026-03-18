@@ -1,0 +1,15 @@
+{
+  "strategy": "momentum",
+  "validation_metrics": {
+    "total_return": 2.375630000000001,
+    "sharpe_ratio": 2.691031381969797,
+    "max_drawdown": 0.30498834519357676,
+    "win_rate": 0.47928994082840237,
+    "profit_factor": 1.26429080877907,
+    "total_trades": 133.0,
+    "avg_win": 701.5016666666668,
+    "avg_loss": -510.7214204545455
+  },
+  "final_equity": 33756.30000000001,
+  "data_source": "data/btc_1h_180d.csv"
+}

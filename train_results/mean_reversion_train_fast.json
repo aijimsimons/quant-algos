@@ -1,0 +1,23 @@
+{
+  "strategy": "mean_reversion",
+  "best_params": {
+    "window": 25,
+    "std_multiplier": 2.0,
+    "position_size_pct": 0.05,
+    "stop_loss_pct": 0.02,
+    "take_profit_pct": 0.025,
+    "max_holding_period": 60
+  },
+  "best_score": 1.26179859166623,
+  "best_metrics": {
+    "total_return": 5.841827319038378,
+    "sharpe_ratio": 1.7576604194008345,
+    "max_drawdown": 0.9917236554692089,
+    "win_rate": 0.49546578730420443,
+    "profit_factor": 1.100365023390837,
+    "total_trades": 950.0,
+    "avg_win": 532.8422270717778,
+    "avg_loss": -475.5376501224617
+  },
+  "total_samples": 200
+}

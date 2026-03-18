@@ -1,0 +1,28 @@
+{
+  "strategy": "momentum",
+  "best_params": {
+    "fast_window": 5,
+    "slow_window": 10,
+    "volume_threshold": 1.2,
+    "position_size_pct": 0.03,
+    "stop_loss_pct": 0.025,
+    "take_profit_pct": 0.035,
+    "max_holding_period": 90
+  },
+  "best_score": 1.7080867363170278,
+  "best_metrics": {
+    "total_return": 1.5530600000000079,
+    "sharpe_ratio": 1.7984645463898985,
+    "max_drawdown": 0.18075562014574148,
+    "win_rate": 0.45434298440979953,
+    "profit_factor": 1.1933939045044604,
+    "total_trades": 414.0,
+    "avg_win": 469.7849509803927,
+    "avg_loss": -327.7776734693879
+  },
+  "total_samples": 50,
+  "data_source": "real_bitcoin_5min_ccxt",
+  "data_start": "2026-02-16 05:00:00",
+  "data_end": "2026-03-18 18:20:00",
+  "data_rows": 8801
+}
